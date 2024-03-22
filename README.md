@@ -46,6 +46,69 @@ Third Stage: Supervised multi-modal federated learning
 	* Send the aggregated model weights to each client.
 
 
+# Project Strcuture
+```
+|--unsupervise-fl-node // codes running on cloud clusters with multiple GPUs, for evaluating the accuracy on the self-collected AD dataset
+
+    |-- run_unifl_all.sh/	// run the first stage of all clients on a cloud cluster
+    |-- run_unifl_all.sh/	// run the first stage of all clients on a cloud cluster 
+    |-- main_unimodal.py/	// main file of running first stage on the client
+    |-- communication.py/	// set up communication with server
+    |-- data_pre.py/		// load the data for clients in FL
+    |-- model.py/ 	// model configurations
+    |-- util.py		// utility functions
+
+|--unsupervise-fl-server // codes running on edge devices (Nvidia Xavier NX), for evaluating the resource allocation scheme on the self-collected AD dataset
+
+|--supervise-fl-node // codes running on cloud clusters with multiple GPUs, for evaluating the accuracy on the FLASH dataset
+
+|--supervise-fl-server // codes running on cloud clusters with multiple GPUs, for evaluating the accuracy on the MHAD dataset
+
+```
+<br>
+
+# Quick Start 
+* Download the codes for each dataset in this repo. Put the folder `client` on your client machines and `server` on your server machine.
+* Download the `dataset` (three public datasets and one dataset collected by ourselves for AD monitoring) from [Harmony-Datasets](https://github.com/xmouyang/Harmony/blob/main/dataset.md) to your client machines.
+* Choose one dataset from the above four datasets and put the folder `under the same folder` with corresponding codes. You can also change the path of loading datasets in 'data_pre.py' to the data path on your client machine.
+* Change the argument "server_address" in 'main_unimodal.py' and 'main_fedfuse.py' as your true server address. If your server is located in the same physical machine of your nodes, you can choose "localhost" for this argument.
+* Run the following code on the client machine
+	* For running clients on the cloud cluster (clients are assigned to different GPUs)
+		* Run the first stage
+		    ```bash
+		    ./run_unifl_all.sh
+		    ```
+		* Run the second stage
+		    ```bash
+		    ./run_fedfusion_all.sh
+		    ```
+		* NOTE: You may need to change the running scripts "run_unifl_all.sh" and "run_fedfusion_all.sh" if you want to run multiple nodes on the same GPUs or run the nodes on different machines. For example, if you want to run 14 nodes in the USC dataset on only 4 GPUs, please run the shell scripts "run_unifl_all-4GPU.sh" and "run_fedfusion_all-4GPU.sh"; if you want to run 16 nodes in the self-collected AD dataset on 4 different machines, please move the shell scripts from the folder "node-run-stage1-4cluster" and "node-run-stage1-4cluster" to the source folder and run one script on each machine.
+	* For running clients on the edge devices (clients are assigned to different Nvidia Xavier NX device)
+		* Move the running script of each node (run_unifl_xx.sh, run_unifl_schedule_xx.sh and run_fedfusion_xx.sh) from the folder 'node-run-stage1' and 'node-run-stage2' to the folder 'client'
+		* Run the first stage: 
+			* For single-modal nodes: 
+			    ```bash
+			    ./run_unifl_xx.sh
+			    ```
+			* For multi-modal nodes: 
+			    ```bash
+			    ./run_unifl_schedule_xx.sh
+			    ```
+		* Run the second stage: 
+		    ```bash
+		    ./run_fedfusion_xx.sh
+		    ```
+* Run the following code on the server machine
+	* Run the first stage: run multiple tasks for different unimodal FL subsystems
+	    ```bash
+	    python3 main_server_stage1_uniFL.py --modality_group 0
+	    python3 main_server_stage1_uniFL.py --modality_group 1
+	    python3 main_server_stage1_uniFL.py --modality_group 2
+	    ```
+	* Run the second stage
+	    ```bash
+	    python3 main_server_stage2_fedfusion_3modal.py
+	    ```
 
 
 
