@@ -29,6 +29,7 @@ The program has been tested in the following environment:
 </p>
 
 First Stage: Centralized model pre-training
+
 Second Stage: Unsupervised multi-modal federated learning
 * Client: 
 	* Local unsupervised multimodal training with contrastive fusion learning
