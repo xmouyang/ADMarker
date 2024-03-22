@@ -50,7 +50,6 @@ Third Stage: Supervised multi-modal federated learning
 ```
 |--unsupervise-fl-node // codes running unsupervised FL on clients
 
-    |-- run_unsupervise_node_all.sh/	// run unsupervised FL of all clients on a cloud cluster
     |-- run_unsupervise_node.sh/	// run unsupervised FL of a client on a edge device
     |-- unsupervise_main_node.py/	// main file of running unsupervised FL on the client
     |-- communication.py/	// set up communication with server
@@ -64,7 +63,6 @@ Third Stage: Supervised multi-modal federated learning
 
 |--supervise-fl-node // codes running supervised FL on clients
 
-    |-- run_supervise_node_all.sh/	// run supervised FL of all clients on a cloud cluster
     |-- run_supervise_node.sh/	// run supervised FL of a client on a edge device
     |-- supervise_main_node.py/	// main file of running supervised FL on the client
     |-- communication.py/	// set up communication with server
@@ -86,18 +84,18 @@ Third Stage: Supervised multi-modal federated learning
 * Run unsupervised federated learning on the clients and server:
 	* Server:
 		```bash
-	    python3 unsupervise main server.py
+	    python3 unsupervise_main_server.py
 	    ```
-	* Client: change the 'node_id' in the below script
+	* Client: change the 'node_id' (0,1, 2, ...) in the below script for each client
 	    ```bash
 	    ./run_unsupervise_node.sh
 	    ```
 * Run supervised federated learning on the clients and server:
 	* Server:
 		```bash
-	    python3 supervise main server.py
+	    python3 supervise_main_server.py
 	    ```
-	* Client: change the 'node_id' in the below script
+	* Client: change the 'node_id' (0,1, 2, ...)  in the below script for each client
 	    ```bash
 	    ./run_supervise_node.sh
 	    ```
