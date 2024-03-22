@@ -25,7 +25,7 @@ The program has been tested in the following environment:
 
 # ADMarker FL Overview
 <p align="center" >
-	<img src="https://github.com/xmouyang/ADMarker/blob/main/figure/three-stage-framework.png" width="800">
+	<img src="https://github.com/xmouyang/ADMarker/blob/main/figure/system-overview.png" width="800">
 </p>
 
 First Stage: Centralized model pre-training
