@@ -48,21 +48,22 @@ Third Stage: Supervised multi-modal federated learning
 
 # Project Strcuture
 ```
-|--unsupervise-fl-node // codes running on cloud clusters with multiple GPUs, for evaluating the accuracy on the self-collected AD dataset
+|--unsupervise-fl-node // codes running unsupervised FL on clients
 
-    |-- run_unifl_all.sh/	// run the first stage of all clients on a cloud cluster
-    |-- run_unifl_all.sh/	// run the first stage of all clients on a cloud cluster 
-    |-- main_unimodal.py/	// main file of running first stage on the client
+    |-- run_unsupervise_node_all.sh/	// run unsupervised FL of all clients on a cloud cluster
+    |-- run_unsupervise_node.sh/	// run unsupervised FL of a client on a edge device
+    |-- unsupervise_main_node.py/	// main file of running unsupervised FL on the client
     |-- communication.py/	// set up communication with server
     |-- data_pre.py/		// load the data for clients in FL
+    |-- cosmo_design.py/	// contrastive fusion learning
     |-- model.py/ 	// model configurations
     |-- util.py		// utility functions
 
-|--unsupervise-fl-server // codes running on edge devices (Nvidia Xavier NX), for evaluating the resource allocation scheme on the self-collected AD dataset
+|--unsupervise-fl-server // codes running unsupervised FL on the server
 
-|--supervise-fl-node // codes running on cloud clusters with multiple GPUs, for evaluating the accuracy on the FLASH dataset
+|--supervise-fl-node // codes running supervised FL on clients
 
-|--supervise-fl-server // codes running on cloud clusters with multiple GPUs, for evaluating the accuracy on the MHAD dataset
+|--supervise-fl-server // codes running supervised FL on the server
 
 ```
 <br>
