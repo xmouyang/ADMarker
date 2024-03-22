@@ -60,57 +60,47 @@ Third Stage: Supervised multi-modal federated learning
     |-- util.py		// utility functions
 
 |--unsupervise-fl-server // codes running unsupervised FL on the server
+    |-- unsupervise_main_server.py
 
 |--supervise-fl-node // codes running supervised FL on clients
 
+    |-- run_supervise_node_all.sh/	// run supervised FL of all clients on a cloud cluster
+    |-- run_supervise_node.sh/	// run supervised FL of a client on a edge device
+    |-- supervise_main_node.py/	// main file of running supervised FL on the client
+    |-- communication.py/	// set up communication with server
+    |-- data_pre.py/		// load the data for clients in FL
+    |-- model.py/ 	// model configurations
+    |-- util.py		// utility functions
+
 |--supervise-fl-server // codes running supervised FL on the server
+    |-- supervise_main_server.py
 
 ```
 <br>
 
 # Quick Start 
-* Download the codes for each dataset in this repo. Put the folder `client` on your client machines and `server` on your server machine.
-* Download the `dataset` (three public datasets and one dataset collected by ourselves for AD monitoring) from [Harmony-Datasets](https://github.com/xmouyang/Harmony/blob/main/dataset.md) to your client machines.
-* Choose one dataset from the above four datasets and put the folder `under the same folder` with corresponding codes. You can also change the path of loading datasets in 'data_pre.py' to the data path on your client machine.
-* Change the argument "server_address" in 'main_unimodal.py' and 'main_fedfuse.py' as your true server address. If your server is located in the same physical machine of your nodes, you can choose "localhost" for this argument.
-* Run the following code on the client machine
-	* For running clients on the cloud cluster (clients are assigned to different GPUs)
-		* Run the first stage
-		    ```bash
-		    ./run_unifl_all.sh
-		    ```
-		* Run the second stage
-		    ```bash
-		    ./run_fedfusion_all.sh
-		    ```
-		* NOTE: You may need to change the running scripts "run_unifl_all.sh" and "run_fedfusion_all.sh" if you want to run multiple nodes on the same GPUs or run the nodes on different machines. For example, if you want to run 14 nodes in the USC dataset on only 4 GPUs, please run the shell scripts "run_unifl_all-4GPU.sh" and "run_fedfusion_all-4GPU.sh"; if you want to run 16 nodes in the self-collected AD dataset on 4 different machines, please move the shell scripts from the folder "node-run-stage1-4cluster" and "node-run-stage1-4cluster" to the source folder and run one script on each machine.
-	* For running clients on the edge devices (clients are assigned to different Nvidia Xavier NX device)
-		* Move the running script of each node (run_unifl_xx.sh, run_unifl_schedule_xx.sh and run_fedfusion_xx.sh) from the folder 'node-run-stage1' and 'node-run-stage2' to the folder 'client'
-		* Run the first stage: 
-			* For single-modal nodes: 
-			    ```bash
-			    ./run_unifl_xx.sh
-			    ```
-			* For multi-modal nodes: 
-			    ```bash
-			    ./run_unifl_schedule_xx.sh
-			    ```
-		* Run the second stage: 
-		    ```bash
-		    ./run_fedfusion_xx.sh
-		    ```
-* Run the following code on the server machine
-	* Run the first stage: run multiple tasks for different unimodal FL subsystems
-	    ```bash
-	    python3 main_server_stage1_uniFL.py --modality_group 0
-	    python3 main_server_stage1_uniFL.py --modality_group 1
-	    python3 main_server_stage1_uniFL.py --modality_group 2
+* Download the codes for each dataset in this repo. Put the folder `unsupervise-fl-node` and `supervise-fl-node` on your client machines, and `unsupervise-fl-server` and `supervise-fl-server` on your server machine.
+* Download the `dataset` from [ADMarker-Example-Datasets](https://github.com/xmouyang/ADMarker/blob/main/dataset.md) to your client machines. Put the folder `under the same folder` with codes of running FL on clients. You can also change the path of loading datasets in 'data_pre.py' to the data path on your client machine.
+* Download the `pretrain_model.pth` from [pre-trained model weights](https://github.com/xmouyang/ADMarker/blob/main/dataset.md) to your client machines. Put the folder `under the same folder` with codes of running FL on clients. 
+* Change the argument "server_address" in 'unsupervise_main_node.py' and 'supervise_main_node.py' as your true server address. If your server is located in the same physical machine of your nodes, you can choose "localhost" for this argument.
+* Run unsupervised federated learning on the clients and server:
+	* Server:
+		```bash
+	    python3 unsupervise main server.py
 	    ```
-	* Run the second stage
+	* Client: change the 'node_id' in the below script
 	    ```bash
-	    python3 main_server_stage2_fedfusion_3modal.py
+	    ./run_unsupervise_node.sh
 	    ```
-
+* Run supervised federated learning on the clients and server:
+	* Server:
+		```bash
+	    python3 supervise main server.py
+	    ```
+	* Client: change the 'node_id' in the below script
+	    ```bash
+	    ./run_supervise_node.sh
+	    ```
 
 
 
