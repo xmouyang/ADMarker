@@ -13,7 +13,7 @@ This repo includes real-world multi-modal datasets collected for Alzheimer’s D
 
 * Task: Detect 16 behavior biomarkers in natural home environments, including cleaning the living area, taking medication, using mobile phones, writing, sitting, standing, moving in/out of chair/bed, walking, sleeping, eating, and drinking.
 * Sensor Modalities: Depth Camera, mmWave Radar and Microphone.
-* Number of Sensor Nodes: 16 nodes deployed in 16 elderly subjects' homes.
+* Subjects: data from 16 nodes deployed in 4 elderly subjects' homes.
 * Size of the dataset: About 8GB.
 
 
