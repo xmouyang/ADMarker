@@ -1,20 +1,20 @@
 # ADMarker-Example-Datasets
 
-This repo includes real-world multi-modal datasets collected for Alzheimer’s Disease Monitoring, which are used in the MobiCom 2024 paper: "ADMarker: A Multi-Modal Federated Learning System for Monitoring Digital Biomarkers of Alzheimer’s Disease".
+This repo includes examples of real-world multi-modal data collected for Alzheimer’s Disease Monitoring, which are used in the MobiCom 2024 paper: "ADMarker: A Multi-Modal Federated Learning System for Monitoring Digital Biomarkers of Alzheimer’s Disease".
 
 
 
 # Download
 
-  The four pre-processed datasets can be downloaded in the [dropbox folder](https://mycuhk-my.sharepoint.com/:f:/g/personal/1155136315_link_cuhk_edu_hk/EvkjzyZRYBBIuaBD-tR8-7QBzaJ1xIfa1eQGUIveGTwPPw?e=wdET4Y). Please refer to the following discriptions of collecting and pre-processing for each dataset. 
+  The pre-processed example datasets can be downloaded in the [dropbox folder](xx). For privacy issue, we only released part of collected data from 4 subjects. Please refer to the following discriptions of collecting and pre-processing for each dataset. 
   
   
 ### Dataset Discriptions: 
 
-* Task: Detect 16 behavior biomarkers in natural home environments, including cleaning the living area, taking medication, using mobile phones, writing, sitting, standing, moving in/out of chair/bed, walking, sleeping, eating, and drinking.
+* Task: Detect 16 behavior biomarkers in natural home environments, including Dressing, Take/Put something, Cleaning the living area, Grooming, Wiping hands, Drinking, Eating, Phone call/Using phone, Exercising, Talking with others, Stretching, Walking, Sitting, Standing, Lying, Moving in/out of chair. We remove the data samples without humans or from other activities with very limited valid data.
 * Sensor Modalities: Depth Camera, mmWave Radar and Microphone.
-* Subjects: data from 16 nodes deployed in 4 elderly subjects' homes.
-* Size of the dataset: About 8GB.
+* Subjects: data from 4 nodes deployed in 4 elderly subjects' homes.
+* Size of the dataset: About xx MB.
 
 
 # Citation
