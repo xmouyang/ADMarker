@@ -6,7 +6,7 @@ This repo includes examples of real-world multi-modal data collected for Alzheim
 
 # Download
 
-  The pre-processed example datasets can be downloaded in the [dropbox folder](https://www.dropbox.com/scl/fo/bghugv708agxcmthso9vt/h?rlkey=4pwt0mzqt4bba9159u3bi9bmn&dl=0). For privacy issue, we only released part of collected data from 4 subjects. Please refer to the following discriptions of collecting and pre-processing for each dataset. 
+  The pre-processed example datasets can be downloaded in the [onedrive folder](https://mycuhk-my.sharepoint.com/:f:/g/personal/1155136315_link_cuhk_edu_hk/EmGmw7eKLYZMgXXM8XfW_pEBnb91TF9_Z4lBqZq3W9v27w?e=MpKOg3). For privacy issue, we only released part of collected data from 4 subjects. Please refer to the following discriptions of collecting and pre-processing for each dataset. 
   
   
 ### Dataset Discriptions: 
