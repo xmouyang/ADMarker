@@ -63,7 +63,7 @@ def parse_option():
                         help='weight decay')
     parser.add_argument('--momentum', type=float, default=0.9,
                         help='momentum')
-    parser.add_argument('--kl_lamda', type=float, default=0.5,
+    parser.add_argument('--kl_lamda', type=float, default=0.1,
                         help='kl_lamda')
 
     # model dataset
@@ -261,8 +261,8 @@ def train_multi(train_loader, model, global_model, criterion, kl_criterion, opti
 
         if epoch > opt.fl_epoch:
             output_global = global_model(input_data1, input_data2, input_data3)
-            print(criterion(output, labels))
-            print(opt.kl_lamda * kl_criterion(output, output_global.detach()))
+            # print(criterion(output, labels))
+            # print(opt.kl_lamda * kl_criterion(output, output_global.detach()))
             loss = criterion(output, labels) + opt.kl_lamda * kl_criterion(output, output_global.detach())
         else:
             loss = criterion(output, labels)
