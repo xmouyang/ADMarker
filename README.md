@@ -79,7 +79,7 @@ Third Stage: Supervised multi-modal federated learning
 # Quick Start 
 * Download the codes for each dataset in this repo. Put the folder `unsupervise-fl-node` and `supervise-fl-node` on your client machines, and `unsupervise-fl-server` and `supervise-fl-server` on your server machine.
 * Download the `dataset` from [ADMarker-Example-Datasets](https://github.com/xmouyang/ADMarker/blob/main/dataset.md) to your client machines. Put the folder `under the same folder` with codes of running FL on clients. You can also change the path of loading datasets in 'data_pre.py' to the data path on your client machine.
-* Download the `pretrain_model.pth` from [pre-trained model weights](https://github.com/xmouyang/ADMarker/blob/main/dataset.md) to your client machines. Put the folder `under the same folder` with codes of running FL on clients. 
+* Download the `pretrain_model.pth` from [pre-trained model weights](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155136315_link_cuhk_edu_hk/ESrMgTVfkMdFmaJWESmwxbYBsDDDrxwRxesVZzuY8deB2g?e=FV9HYH) to your client machines. Put the folder `under the same folder` with codes of running FL on clients. 
 * Change the argument "server_address" in 'unsupervise_main_node.py' and 'supervise_main_node.py' as your true server address. If your server is located in the same physical machine of your nodes, you can choose "localhost" for this argument.
 * Run unsupervised federated learning on the clients and server:
 	* Server:
