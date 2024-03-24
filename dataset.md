@@ -14,7 +14,7 @@ This repo includes examples of real-world multi-modal data collected for Alzheim
 * Task: Detect 16 behavior biomarkers in natural home environments, including Dressing, Take/Put something, Cleaning the living area, Grooming, Wiping hands, Drinking, Eating, Phone call/Using phone, Exercising, Talking with others, Stretching, Walking, Sitting, Standing, Lying, Moving in/out of chair. We remove the data samples without humans or from other activities with very limited valid data.
 * Sensor Modalities: Depth Camera, mmWave Radar and Microphone.
 * Subjects: data from 4 nodes deployed in 4 elderly subjects' homes.
-* Size of the dataset: About xx MB.
+* Size of the dataset: About 1.5 GB.
 
 
 # Citation
