@@ -99,7 +99,7 @@ Third Stage: Supervised multi-modal federated learning
 	    ```bash
 	    ./run_supervise_node.sh
 	    ```
-* NOTE: The default codes corresponde to the settings with four nodes, as we only released data from four subjects due to the privacy concerns. If you want to adapt the codes to other datasets with more nodes, you should change the hyper-parameter `num_of_users` in `unsupervise_main_server.py' and 'unsupervise_main_server.py`, as well as the `node_id` in `run_unsupervise_node.sh' and 'run_supervise_node.sh `
+* NOTE: The default codes corresponde to the settings with four nodes, as we only released data from four subjects due to the privacy concerns. If you want to adapt the codes to other datasets with more nodes, you should change the hyper-parameter `num_of_users` in `unsupervise_main_server.py` and `unsupervise_main_server.py`, as well as the `node_id` in `run_unsupervise_node.sh' and 'run_supervise_node.sh `
 
 
 
